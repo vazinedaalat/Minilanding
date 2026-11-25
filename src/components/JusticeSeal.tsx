@@ -1,6 +1,4 @@
-import CircularText from '@/components/react-bits/CircularText'
 import Orb from '@/components/react-bits/Orb'
-import { site } from '@/content/site'
 import { cn } from '@/lib/cn'
 
 type JusticeSealProps = {
@@ -9,44 +7,46 @@ type JusticeSealProps = {
 }
 
 /**
- * انیمیشن نوآورانه هدر: مهر سه‌بعدی عدالت —
- * حلقهٔ متن چرخان طلایی دور یک Orb تعاملی.
+ * انیمیشن هدر: مهر عدالت —
+ * حلقه‌های طلایی چرخان + Orb تعاملی + نماد ترازو (بدون متن ناخوانا).
  */
 export function JusticeSeal({ className, size = 'md' }: JusticeSealProps) {
-  const dim = size === 'sm' ? 72 : 96
-  const fontSize = size === 'sm' ? 11 : 13
+  const outer = size === 'sm' ? 'size-14' : 'size-[5.5rem]'
+  const orb = size === 'sm' ? 'size-8' : 'size-12'
+  const icon = size === 'sm' ? 'size-3.5' : 'size-5'
 
   return (
     <div
-      className={cn(
-        'relative grid place-items-center',
-        size === 'sm' ? 'size-[4.5rem]' : 'size-[6.25rem]',
-        className,
-      )}
+      className={cn('relative grid place-items-center', outer, className)}
       aria-hidden="true"
     >
-      <div className="absolute inset-0 opacity-90">
-        <CircularText
-          text={site.header.sealText}
-          spinDuration={28}
-          onHover="slowDown"
-          direction="counterclockwise"
-          size={dim}
-          fontSize={fontSize}
-          fontWeight={600}
-          color="#c9a86c"
-          letterSpacing={2}
-          tilt={8}
-          hoverTilt={18}
-          className="!absolute !inset-0"
-        />
-      </div>
-      <div
+      {/* Outer dashed orbit */}
+      <span
         className={cn(
-          'relative overflow-hidden rounded-full',
-          size === 'sm' ? 'size-10' : 'size-14',
+          'pointer-events-none absolute inset-0 rounded-full border border-dashed border-gold-500/45',
+          'animate-[seal-spin_18s_linear_infinite]',
         )}
-      >
+      />
+      {/* Inner solid ring with soft glow */}
+      <span
+        className={cn(
+          'pointer-events-none absolute inset-[18%] rounded-full border border-gold-400/35',
+          'shadow-[0_0_18px_-4px_rgba(201,168,108,0.55)]',
+          'animate-[seal-spin-rev_12s_linear_infinite]',
+        )}
+      />
+      {/* Orbiting gold bead */}
+      <span className="pointer-events-none absolute inset-0 animate-[seal-spin_9s_linear_infinite]">
+        <span
+          className={cn(
+            'absolute start-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-400',
+            size === 'sm' ? 'size-1.5' : 'size-2',
+            'shadow-[0_0_10px_2px_rgba(201,168,108,0.7)]',
+          )}
+        />
+      </span>
+
+      <div className={cn('relative overflow-hidden rounded-full', orb)}>
         <Orb
           colors={['#c9a86c', '#0b1c2c', '#e7d5ae']}
           hue={35}
@@ -60,6 +60,23 @@ export function JusticeSeal({ className, size = 'md' }: JusticeSealProps) {
           className="h-full w-full"
         />
       </div>
+
+      {/* Scales mark over the orb */}
+      <svg
+        viewBox="0 0 24 24"
+        className={cn(
+          'pointer-events-none absolute text-gold-200/90 drop-shadow-[0_0_6px_rgba(201,168,108,0.45)]',
+          icon,
+        )}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      >
+        <path d="M12 3v15" strokeLinecap="round" />
+        <path d="M7 8h10" strokeLinecap="round" />
+        <path d="M8.5 8l-2 5.5h5L8.5 8zM15.5 8l-2 5.5h5L15.5 8z" strokeLinejoin="round" />
+        <path d="M9 18h6" strokeLinecap="round" />
+      </svg>
     </div>
   )
 }

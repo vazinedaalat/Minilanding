@@ -21,7 +21,6 @@ export const site = {
   },
 
   header: {
-    sealText: 'عدالت · وکالت · مشاوره · وزین · آنلاین · ',
     navAria: 'منوی اصلی',
     skipToContent: 'پرش به محتوا',
     menuOpen: 'باز کردن منو',
