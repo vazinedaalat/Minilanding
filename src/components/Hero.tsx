@@ -53,7 +53,9 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href={site.social.phone.href}
+              href={site.hero.primaryCtaHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center rounded-2xl bg-gold-500 px-6 text-sm font-bold text-navy-950 transition hover:bg-gold-400"
             >
               {site.hero.primaryCta}
