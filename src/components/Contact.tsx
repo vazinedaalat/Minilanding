@@ -75,12 +75,22 @@ export function Contact() {
                 <p className="font-display text-2xl font-bold text-gold-300">{site.brand.legalName}</p>
                 <p className="mt-4 text-sm leading-8 text-white/70">{site.brand.sloganSupport}</p>
               </div>
-              <a
-                href={contact.phoneHref}
-                className="mt-8 inline-flex h-12 items-center justify-center rounded-2xl bg-gold-500 px-6 text-sm font-bold text-navy-950 transition hover:bg-gold-400"
-              >
-                {contact.cta}
-              </a>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={contact.baleHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-12 flex-1 items-center justify-center rounded-2xl bg-gold-500 px-6 text-sm font-bold text-navy-950 transition hover:bg-gold-400"
+                >
+                  {contact.baleCta}
+                </a>
+                <a
+                  href={contact.phoneHref}
+                  className="inline-flex h-12 flex-1 items-center justify-center rounded-2xl border border-white/20 bg-white/5 px-6 text-sm font-semibold text-white transition hover:border-gold-400/40 hover:bg-white/10"
+                >
+                  {contact.cta}
+                </a>
+              </div>
             </div>
           </AnimatedContent>
         </div>

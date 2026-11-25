@@ -1,3 +1,4 @@
+import { BaleBot } from '@/components/BaleBot'
 import { Contact } from '@/components/Contact'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -12,6 +13,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <BaleBot />
         <Services />
         <Process />
         <WhyUs />
