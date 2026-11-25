@@ -79,11 +79,106 @@
     );
   }
 
+  /*
+   * Surface system — one navy/gold family across the page.
+   * Flow: ink → slate → mist → mist-warm → dusk → footer ink
+   * (Law of Continuity / Similarity / Unity)
+   */
   .atmosphere {
     background:
       radial-gradient(ellipse 80% 50% at 20% -10%, rgb(201 168 108 / 0.18), transparent 55%),
       radial-gradient(ellipse 60% 40% at 90% 10%, rgb(35 56 78 / 0.35), transparent 50%),
       linear-gradient(165deg, #060d17 0%, #0b1c2c 42%, #17293c 100%);
+  }
+
+  .surface-ink {
+    background:
+      radial-gradient(ellipse 70% 45% at 85% 0%, rgb(201 168 108 / 0.12), transparent 55%),
+      radial-gradient(ellipse 55% 40% at 10% 100%, rgb(51 80 107 / 0.35), transparent 50%),
+      linear-gradient(180deg, #0b1c2c 0%, #0f172a 48%, #0b1c2c 100%);
+  }
+
+  .surface-slate {
+    background:
+      radial-gradient(ellipse 60% 50% at 0% 20%, rgb(201 168 108 / 0.1), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 100% 80%, rgb(23 41 60 / 0.9), transparent 55%),
+      linear-gradient(180deg, #17293c 0%, #0f172a 52%, #122033 100%);
+  }
+
+  .surface-mist {
+    background:
+      radial-gradient(ellipse 70% 45% at 100% 0%, rgb(201 168 108 / 0.1), transparent 50%),
+      radial-gradient(ellipse 55% 40% at 0% 100%, rgb(195 207 220 / 0.45), transparent 55%),
+      linear-gradient(180deg, #e8eef4 0%, #f2f5f8 42%, #eef2f7 100%);
+  }
+
+  .surface-mist-warm {
+    background:
+      radial-gradient(ellipse 65% 50% at 0% 0%, rgb(201 168 108 / 0.14), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 100% 90%, rgb(226 232 239 / 0.8), transparent 50%),
+      linear-gradient(180deg, #f2f5f8 0%, #f7f4ee 48%, #eef2f7 100%);
+  }
+
+  .surface-dusk {
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgb(201 168 108 / 0.12), transparent 55%),
+      linear-gradient(180deg, #e2e8ef 0%, #d5dee8 45%, #c3cfdc 100%);
+  }
+
+  .section-glow {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, transparent, rgb(201 168 108 / 0.08), transparent);
+    opacity: 0.55;
+    mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+  }
+
+  .section-bridge-to-mist::after,
+  .section-bridge-to-slate::after,
+  .section-bridge-to-ink::after,
+  .section-bridge-to-dusk::after,
+  .section-bridge-to-footer::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: clamp(4rem, 12vw, 7rem);
+    z-index: 2;
+  }
+
+  .section-bridge-to-mist::after {
+    background: linear-gradient(180deg, transparent, #e8eef4);
+  }
+
+  .section-bridge-to-slate::after {
+    background: linear-gradient(180deg, transparent, #17293c);
+  }
+
+  .section-bridge-to-ink::after {
+    background: linear-gradient(180deg, transparent, #0b1c2c);
+  }
+
+  .section-bridge-to-dusk::after {
+    background: linear-gradient(180deg, transparent, #e2e8ef);
+  }
+
+  .section-bridge-to-footer::after {
+    background: linear-gradient(180deg, transparent, #060d17);
+  }
+
+  .card-on-mist {
+    background: rgb(255 255 255 / 0.78);
+    border: 1px solid rgb(195 207 220 / 0.85);
+    box-shadow: 0 18px 40px -28px rgb(11 28 44 / 0.35);
+    backdrop-filter: blur(8px);
+  }
+
+  .card-on-ink {
+    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / 0.1);
   }
 }
 

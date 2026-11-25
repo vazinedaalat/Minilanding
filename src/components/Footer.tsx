@@ -2,7 +2,11 @@ import { site } from '@/content/site'
 
 export function Footer() {
   return (
-    <footer className="border-t border-navy-800 bg-navy-950 text-white">
+    <footer className="relative border-t border-gold-500/15 bg-navy-950 text-white">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-l from-transparent via-gold-500/50 to-transparent"
+        aria-hidden="true"
+      />
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 lg:py-14">
         <div>
           <p className="font-display text-2xl font-bold">
