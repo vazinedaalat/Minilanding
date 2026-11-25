@@ -2,17 +2,18 @@ import AnimatedContent from '@/components/react-bits/AnimatedContent'
 import CountUp from '@/components/react-bits/CountUp'
 import Cubes from '@/components/react-bits/Cubes'
 import TrueFocus from '@/components/react-bits/TrueFocus'
+import { Section, SectionEyebrow, SectionInner } from '@/components/Section'
 import { site } from '@/content/site'
 
 export function WhyUs() {
   const { whyUs } = site
 
   return (
-    <section id={whyUs.id} className="relative overflow-hidden bg-navy-50 py-20 sm:py-24 lg:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16 lg:px-8">
+    <Section id={whyUs.id} tone="mist-warm" bridge="to-dusk">
+      <SectionInner className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
         <div>
           <AnimatedContent distance={36} duration={0.7}>
-            <p className="text-xs font-semibold tracking-[0.25em] text-gold-600">{whyUs.eyebrow}</p>
+            <SectionEyebrow>{whyUs.eyebrow}</SectionEyebrow>
             <div className="font-display mt-4 text-3xl font-bold text-navy-900 sm:text-4xl">
               <TrueFocus
                 sentence={whyUs.title}
@@ -29,7 +30,7 @@ export function WhyUs() {
           <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">
             {whyUs.stats.map((stat, index) => (
               <AnimatedContent key={stat.id} distance={28} delay={0.05 * index} duration={0.55}>
-                <div className="rounded-3xl border border-navy-200/80 bg-white p-4 sm:p-5">
+                <div className="card-on-mist rounded-3xl p-4 sm:p-5">
                   <div className="font-display flex items-baseline gap-1 text-3xl font-extrabold text-navy-900 sm:text-4xl">
                     <CountUp
                       to={stat.value}
@@ -61,7 +62,7 @@ export function WhyUs() {
         </div>
 
         <AnimatedContent distance={50} duration={0.8} tilt={6} className="relative">
-          <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-navy-200 bg-navy-900 shadow-[0_30px_80px_-40px_rgba(11,28,44,0.7)]">
+          <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-navy-700/40 bg-navy-900 shadow-[0_30px_80px_-40px_rgba(11,28,44,0.7)]">
             <div className="absolute inset-0 opacity-90">
               <Cubes
                 gridSize={8}
@@ -84,7 +85,7 @@ export function WhyUs() {
             </div>
           </div>
         </AnimatedContent>
-      </div>
-    </section>
+      </SectionInner>
+    </Section>
   )
 }

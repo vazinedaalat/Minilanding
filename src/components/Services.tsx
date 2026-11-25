@@ -9,6 +9,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import AnimatedContent from '@/components/react-bits/AnimatedContent'
 import SpotlightCard from '@/components/react-bits/SpotlightCard'
+import { Section, SectionEyebrow, SectionInner } from '@/components/Section'
 import { site } from '@/content/site'
 
 const ICONS: Record<string, LucideIcon> = {
@@ -24,10 +25,10 @@ export function Services() {
   const { services } = site
 
   return (
-    <section id={services.id} className="relative bg-navy-50 py-20 sm:py-24 lg:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <Section id={services.id} tone="mist" bridge="to-slate">
+      <SectionInner>
         <AnimatedContent distance={40} duration={0.7} blur={4}>
-          <p className="text-xs font-semibold tracking-[0.25em] text-gold-600">{services.eyebrow}</p>
+          <SectionEyebrow>{services.eyebrow}</SectionEyebrow>
           <h2 className="font-display mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">
             {services.title}
           </h2>
@@ -48,7 +49,7 @@ export function Services() {
                 <SpotlightCard
                   theme="light"
                   spotlightColor="rgba(201, 168, 108, 0.35)"
-                  className="h-full !rounded-3xl !border-navy-200/80 !bg-white !p-6 !shadow-none"
+                  className="card-on-mist h-full !rounded-3xl !border-navy-200/80 !bg-white/80 !p-6 !shadow-none"
                 >
                   <div className="mb-4 inline-flex size-11 items-center justify-center rounded-2xl bg-navy-900 text-gold-400">
                     <Icon className="size-5" strokeWidth={1.7} />
@@ -60,7 +61,7 @@ export function Services() {
             )
           })}
         </div>
-      </div>
-    </section>
+      </SectionInner>
+    </Section>
   )
 }

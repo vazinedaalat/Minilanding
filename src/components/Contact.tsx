@@ -1,16 +1,17 @@
 import { Clock3, Mail, MapPin, Phone } from 'lucide-react'
 import AnimatedContent from '@/components/react-bits/AnimatedContent'
 import GradientText from '@/components/react-bits/GradientText'
+import { Section, SectionEyebrow, SectionInner } from '@/components/Section'
 import { site } from '@/content/site'
 
 export function Contact() {
   const { contact } = site
 
   return (
-    <section id={contact.id} className="relative bg-navy-100/60 py-20 sm:py-24 lg:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <Section id={contact.id} tone="dusk" bridge="to-footer" className="pb-24 sm:pb-28">
+      <SectionInner>
         <AnimatedContent distance={40} duration={0.7}>
-          <p className="text-xs font-semibold tracking-[0.25em] text-gold-600">{contact.eyebrow}</p>
+          <SectionEyebrow>{contact.eyebrow}</SectionEyebrow>
           <h2 className="font-display mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">
             <GradientText
               colors={['#0b1c2c', '#a9853f', '#0b1c2c']}
@@ -28,7 +29,7 @@ export function Contact() {
             <div className="grid gap-3 sm:grid-cols-2">
               <a
                 href={contact.phoneHref}
-                className="flex items-start gap-3 rounded-3xl border border-navy-200 bg-white p-5 transition hover:border-gold-500/40"
+                className="card-on-mist flex items-start gap-3 rounded-3xl p-5 transition hover:border-gold-500/40"
               >
                 <Phone className="mt-0.5 size-5 shrink-0 text-gold-600" strokeWidth={1.7} />
                 <span>
@@ -40,7 +41,7 @@ export function Contact() {
               </a>
               <a
                 href={`mailto:${contact.email}`}
-                className="flex items-start gap-3 rounded-3xl border border-navy-200 bg-white p-5 transition hover:border-gold-500/40"
+                className="card-on-mist flex items-start gap-3 rounded-3xl p-5 transition hover:border-gold-500/40"
               >
                 <Mail className="mt-0.5 size-5 shrink-0 text-gold-600" strokeWidth={1.7} />
                 <span>
@@ -50,7 +51,7 @@ export function Contact() {
                   </span>
                 </span>
               </a>
-              <div className="flex items-start gap-3 rounded-3xl border border-navy-200 bg-white p-5 sm:col-span-2">
+              <div className="card-on-mist flex items-start gap-3 rounded-3xl p-5 sm:col-span-2">
                 <MapPin className="mt-0.5 size-5 shrink-0 text-gold-600" strokeWidth={1.7} />
                 <span>
                   <span className="block text-sm text-navy-500">آدرس</span>
@@ -59,7 +60,7 @@ export function Contact() {
                   </span>
                 </span>
               </div>
-              <div className="flex items-start gap-3 rounded-3xl border border-navy-200 bg-white p-5 sm:col-span-2">
+              <div className="card-on-mist flex items-start gap-3 rounded-3xl p-5 sm:col-span-2">
                 <Clock3 className="mt-0.5 size-5 shrink-0 text-gold-600" strokeWidth={1.7} />
                 <span>
                   <span className="block text-sm text-navy-500">ساعات کاری</span>
@@ -70,7 +71,7 @@ export function Contact() {
           </AnimatedContent>
 
           <AnimatedContent distance={32} delay={0.1} duration={0.65}>
-            <div className="flex h-full flex-col justify-between rounded-[2rem] bg-navy-900 p-7 text-white sm:p-8">
+            <div className="flex h-full flex-col justify-between rounded-[2rem] border border-navy-800/40 bg-navy-900 p-7 text-white shadow-[0_30px_60px_-36px_rgba(6,13,23,0.7)] sm:p-8">
               <div>
                 <p className="font-display text-2xl font-bold text-gold-300">{site.brand.legalName}</p>
                 <p className="mt-4 text-sm leading-8 text-white/70">{site.brand.sloganSupport}</p>
@@ -94,7 +95,7 @@ export function Contact() {
             </div>
           </AnimatedContent>
         </div>
-      </div>
-    </section>
+      </SectionInner>
+    </Section>
   )
 }
