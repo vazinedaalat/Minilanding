@@ -1,0 +1,18 @@
+# لندینگ وزین عدالت — روی سرور لینوکس:
+#   cp -n .env.example .env
+#   docker compose up -d --build
+#   http://SERVER_IP:8080 · curl -I http://SERVER_IP:8080/healthz
+
+name: vazin-edalat-landing
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        VITE_APP_ENV: ${VITE_APP_ENV:-production}
+        VITE_APP_NAME: ${VITE_APP_NAME:-وزین عدالت}
+        VITE_SITE_URL: ${VITE_SITE_URL:-http://localhost:8080}
+    ports:
+      - "${WEB_PORT:-8080}:8080"
+    restart: unless-stopped
