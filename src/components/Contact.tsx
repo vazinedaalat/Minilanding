@@ -1,4 +1,4 @@
-import { Clock3, Mail, MapPin, Phone } from 'lucide-react'
+import { Clock3, Phone } from 'lucide-react'
 import AnimatedContent from '@/components/react-bits/AnimatedContent'
 import GradientText from '@/components/react-bits/GradientText'
 import { Section, SectionEyebrow, SectionInner } from '@/components/Section'
@@ -39,28 +39,7 @@ export function Contact() {
                   </span>
                 </span>
               </a>
-              <a
-                href={`mailto:${contact.email}`}
-                className="card-on-mist flex items-start gap-3 rounded-3xl p-5 transition hover:border-gold-500/40"
-              >
-                <Mail className="mt-0.5 size-5 shrink-0 text-gold-600" strokeWidth={1.7} />
-                <span>
-                  <span className="block text-sm text-navy-500">ایمیل</span>
-                  <span className="mt-1 block font-semibold text-navy-900" dir="ltr">
-                    {contact.email}
-                  </span>
-                </span>
-              </a>
-              <div className="card-on-mist flex items-start gap-3 rounded-3xl p-5 sm:col-span-2">
-                <MapPin className="mt-0.5 size-5 shrink-0 text-gold-600" strokeWidth={1.7} />
-                <span>
-                  <span className="block text-sm text-navy-500">آدرس</span>
-                  <span className="mt-1 block font-semibold leading-7 text-navy-900">
-                    {contact.address}
-                  </span>
-                </span>
-              </div>
-              <div className="card-on-mist flex items-start gap-3 rounded-3xl p-5 sm:col-span-2">
+              <div className="card-on-mist flex items-start gap-3 rounded-3xl p-5">
                 <Clock3 className="mt-0.5 size-5 shrink-0 text-gold-600" strokeWidth={1.7} />
                 <span>
                   <span className="block text-sm text-navy-500">ساعات کاری</span>
