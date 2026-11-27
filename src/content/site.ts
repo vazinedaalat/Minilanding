@@ -251,7 +251,7 @@ export const site = {
     subtitle: 'برای مشاوره اولیه، همین حالا با ما در ارتباط باشید.',
     phone: '۰۲۱ − ۹۱۰۰ ۲۲۳۳',
     phoneHref: 'tel:+982191002233',
-    workingHours: 'شنبه تا چهارشنبه، ۹ تا ۱۸ · پنجشنبه، ۹ تا ۱۳',
+    workingHours: 'هر روز ۹ صبح تا ۹ شب · به‌جز جمعه',
     cta: 'تماس تلفنی',
     baleCta: 'شروع در بله',
     baleHref: 'https://ble.ir/vazinedalatbot',
