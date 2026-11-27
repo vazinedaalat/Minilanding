@@ -7,24 +7,16 @@ export function Footer() {
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-l from-transparent via-gold-500/50 to-transparent"
         aria-hidden="true"
       />
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 lg:py-14">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 lg:py-14">
         <div>
           <p className="font-display text-2xl font-bold">
             <span className="text-gold-400">{site.brand.nameLead}</span> {site.brand.nameTrail}
           </p>
           <p className="mt-3 max-w-md text-sm leading-7 text-white/65">{site.brand.slogan}</p>
-          <ul className="mt-5 flex flex-col gap-2 text-sm text-gold-300/90">
-            {site.footer.highlights.map((item) => (
-              <li key={item}>— {item}</li>
-            ))}
-          </ul>
         </div>
 
         <div className="text-sm text-white/55 lg:text-end">
           <p>{site.footer.copyright}</p>
-          <p className="mt-2" dir="ltr">
-            {site.contact.email}
-          </p>
         </div>
       </div>
     </footer>
