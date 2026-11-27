@@ -1,10 +1,10 @@
 import {
-  FileCheck2,
-  FolderSearch,
-  MessagesSquare,
-  PenLine,
+  Gavel,
+  HeartHandshake,
+  MessageCircleHeart,
   Scale,
   ScrollText,
+  Users,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import AnimatedContent from '@/components/react-bits/AnimatedContent'
@@ -13,12 +13,12 @@ import { Section, SectionEyebrow, SectionInner } from '@/components/Section'
 import { site } from '@/content/site'
 
 const ICONS: Record<string, LucideIcon> = {
-  'legal-affairs': Scale,
-  'brief-writing': PenLine,
-  petition: ScrollText,
-  consultation: MessagesSquare,
-  contracts: FileCheck2,
-  'case-tracking': FolderSearch,
+  'online-lawyer': Scale,
+  'online-complaint': ScrollText,
+  divorce: HeartHandshake,
+  inheritance: Users,
+  'legal-problems': Gavel,
+  'free-consult': MessageCircleHeart,
 }
 
 export function Services() {

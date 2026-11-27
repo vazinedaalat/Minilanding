@@ -10,7 +10,7 @@ export function WhyUs() {
   const { whyUs } = site
 
   return (
-    <Section id={whyUs.id} tone="mist-warm" bridge="to-dusk">
+    <Section id={whyUs.id} tone="mist-warm" bridge="to-mist">
       <SectionInner className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
         <div>
           <AnimatedContent distance={36} duration={0.7}>
