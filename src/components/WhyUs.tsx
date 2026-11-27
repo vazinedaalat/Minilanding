@@ -2,6 +2,7 @@ import AnimatedContent from '@/components/react-bits/AnimatedContent'
 import CountUp from '@/components/react-bits/CountUp'
 import Cubes from '@/components/react-bits/Cubes'
 import TrueFocus from '@/components/react-bits/TrueFocus'
+import { BrandLogo } from '@/components/BrandLogo'
 import { Section, SectionEyebrow, SectionInner } from '@/components/Section'
 import { site } from '@/content/site'
 
@@ -79,9 +80,12 @@ export function WhyUs() {
               />
             </div>
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-navy-950/30" />
-            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-              <p className="font-display text-2xl font-bold text-gold-300">{site.brand.name}</p>
-              <p className="mt-2 text-sm leading-7 text-white/75">{site.brand.tagline}</p>
+            <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-6 sm:gap-4 sm:p-8">
+              <BrandLogo size="md" href={null} imgClassName="shadow-[0_8px_24px_-8px_rgba(0,0,0,0.55)]" />
+              <div>
+                <p className="font-display text-2xl font-bold text-gold-300">{site.brand.name}</p>
+                <p className="mt-1 text-sm leading-7 text-white/75">{site.brand.tagline}</p>
+              </div>
             </div>
           </div>
         </AnimatedContent>

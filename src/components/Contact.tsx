@@ -1,6 +1,7 @@
 import { Clock3, Phone } from 'lucide-react'
 import AnimatedContent from '@/components/react-bits/AnimatedContent'
 import GradientText from '@/components/react-bits/GradientText'
+import { BrandLogo } from '@/components/BrandLogo'
 import { Section, SectionEyebrow, SectionInner } from '@/components/Section'
 import { site } from '@/content/site'
 
@@ -52,7 +53,12 @@ export function Contact() {
           <AnimatedContent distance={32} delay={0.1} duration={0.65}>
             <div className="flex h-full flex-col justify-between rounded-[2rem] border border-navy-800/40 bg-navy-900 p-7 text-white shadow-[0_30px_60px_-36px_rgba(6,13,23,0.7)] sm:p-8">
               <div>
-                <p className="font-display text-2xl font-bold text-gold-300">{site.brand.legalName}</p>
+                <div className="flex items-center gap-3">
+                  <BrandLogo size="md" href={null} />
+                  <p className="font-display text-xl font-bold text-gold-300 sm:text-2xl">
+                    {site.brand.legalName}
+                  </p>
+                </div>
                 <p className="mt-4 text-sm leading-8 text-white/70">{site.brand.sloganSupport}</p>
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">

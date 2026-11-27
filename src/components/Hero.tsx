@@ -1,5 +1,6 @@
 import BlurText from '@/components/react-bits/BlurText'
 import Silk from '@/components/react-bits/Silk'
+import { BrandLogo } from '@/components/BrandLogo'
 import { site } from '@/content/site'
 
 export function Hero() {
@@ -27,9 +28,12 @@ export function Hero() {
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-20 lg:justify-center lg:px-8 lg:pb-24 lg:pt-32">
         <div className="max-w-3xl">
-          <p className="mb-5 text-xs font-medium tracking-[0.28em] text-gold-400/90 sm:text-sm">
-            {site.hero.eyebrow}
-          </p>
+          <div className="mb-5 flex items-center gap-3">
+            <BrandLogo size="md" href={null} imgClassName="size-14 sm:size-16" />
+            <p className="text-xs font-medium tracking-[0.28em] text-gold-400/90 sm:text-sm">
+              {site.hero.eyebrow}
+            </p>
+          </div>
 
           <h1 className="font-display text-[clamp(2.4rem,7vw,4.6rem)] font-extrabold leading-[1.12] tracking-tight text-balance">
             <span className="block text-gold-300">{site.brand.name}</span>

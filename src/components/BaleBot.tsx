@@ -1,6 +1,7 @@
 import { FileUp, MessageCircle, ShieldCheck, ClipboardList } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import AnimatedContent from '@/components/react-bits/AnimatedContent'
+import { BrandLogo } from '@/components/BrandLogo'
 import { Section, SectionEyebrow, SectionInner } from '@/components/Section'
 import { site } from '@/content/site'
 
@@ -19,8 +20,11 @@ export function BaleBot() {
       <SectionInner>
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14">
           <AnimatedContent distance={40} duration={0.7}>
-            <SectionEyebrow tone="dark">{baleBot.eyebrow}</SectionEyebrow>
-            <h2 className="font-display mt-3 text-3xl font-bold sm:text-4xl">{baleBot.title}</h2>
+            <div className="mb-4 flex items-center gap-3">
+              <BrandLogo size="md" href={null} />
+              <SectionEyebrow tone="dark">{baleBot.eyebrow}</SectionEyebrow>
+            </div>
+            <h2 className="font-display text-3xl font-bold sm:text-4xl">{baleBot.title}</h2>
             <p className="mt-2 text-sm font-medium text-gold-300">
               ربات بله · {baleBot.name}
             </p>
