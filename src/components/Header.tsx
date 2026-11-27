@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { BrandLogo } from '@/components/BrandLogo'
 import { JusticeSeal } from '@/components/JusticeSeal'
 import { SocialLinks } from '@/components/SocialLinks'
 import { site } from '@/content/site'
@@ -40,21 +41,7 @@ export function Header() {
       </a>
 
       <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:h-[5.25rem] lg:px-8">
-        <a href="#home" className="group flex min-w-0 items-center gap-3">
-          <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-gold-500/35 bg-navy-900/60 text-gold-400">
-            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.6">
-              <path d="M12 3v18M5 9h14M7.5 9l-2 8h13l-2-8" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M9 17h6" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span className="min-w-0">
-            <span className="font-display block truncate text-lg font-bold tracking-tight text-white sm:text-xl">
-              <span className="text-gold-400">{site.brand.nameLead}</span>{' '}
-              {site.brand.nameTrail}
-            </span>
-            <span className="hidden text-[0.7rem] text-gold-200/70 sm:block">{site.brand.tagline}</span>
-          </span>
-        </a>
+        <BrandLogo withName size="sm" tone="dark" href="#home" />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label={site.header.navAria}>
           {site.nav.map((item) => (
