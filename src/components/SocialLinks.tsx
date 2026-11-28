@@ -4,7 +4,8 @@ import { cn } from '@/lib/cn'
 
 type SocialLinksProps = {
   className?: string
-  compact?: boolean
+  /** نسخهٔ تیره برای فوتر روی پس‌زمینهٔ navy */
+  tone?: 'header' | 'footer'
 }
 
 function BaleIcon({ className }: { className?: string }) {
@@ -37,35 +38,44 @@ function PhoneIcon({ className }: { className?: string }) {
   )
 }
 
-const linkBase =
-  'inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-gold-500/25 bg-navy-900/40 px-3 text-gold-200 backdrop-blur-sm transition-colors hover:border-gold-400/50 hover:bg-navy-800/70 hover:text-gold-100'
+/** دکمه‌های یکسان هدر/فوتر — حداقل حدود ۴۴px برای لمس */
+const btnBase =
+  'inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-xl px-3 text-sm font-medium transition-colors'
 
-export function SocialLinks({ className, compact = false }: SocialLinksProps) {
+export function SocialLinks({ className, tone = 'header' }: SocialLinksProps) {
   const { phone, bale, instagram } = site.social
+  const toneClass =
+    tone === 'footer'
+      ? 'border border-gold-500/30 bg-white/5 text-gold-200 hover:border-gold-400/50 hover:bg-white/10 hover:text-gold-100'
+      : 'border border-gold-500/25 bg-navy-900/40 text-gold-200 backdrop-blur-sm hover:border-gold-400/50 hover:bg-navy-800/70 hover:text-gold-100'
 
   return (
     <div className={cn('flex items-center gap-2', className)}>
-      <Magnet padding={28} magnetStrength={2.2} maxOffset={14} tilt={6} scale={1.04}>
-        <a href={phone.href} className={cn(linkBase, compact ? 'px-2.5' : 'ps-2.5 pe-3')} aria-label={phone.aria}>
-          <PhoneIcon className="size-4 shrink-0" />
-          {!compact && (
-            <span className="hidden font-medium tracking-wide xl:inline" dir="ltr">
+      {phone.enabled && phone.href ? (
+        <Magnet padding={28} magnetStrength={2.2} maxOffset={14} tilt={6} scale={1.04}>
+          <a
+            href={phone.href}
+            className={cn(btnBase, toneClass, 'ps-3 pe-3.5')}
+            aria-label={phone.aria}
+          >
+            <PhoneIcon className="size-[1.125rem] shrink-0" />
+            <span className="hidden font-medium tracking-wide lg:inline" dir="ltr">
               {phone.display}
             </span>
-          )}
-        </a>
-      </Magnet>
+          </a>
+        </Magnet>
+      ) : null}
 
       <Magnet padding={28} magnetStrength={2.2} maxOffset={14} tilt={6} scale={1.04}>
         <a
           href={bale.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={cn(linkBase, 'w-10 px-0')}
+          className={cn(btnBase, toneClass, 'w-11 px-0')}
           aria-label={bale.aria}
           title={bale.label}
         >
-          <BaleIcon className="size-4" />
+          <BaleIcon className="size-[1.125rem]" />
         </a>
       </Magnet>
 
@@ -74,11 +84,11 @@ export function SocialLinks({ className, compact = false }: SocialLinksProps) {
           href={instagram.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={cn(linkBase, 'w-10 px-0')}
+          className={cn(btnBase, toneClass, 'w-11 px-0')}
           aria-label={instagram.aria}
           title={instagram.label}
         >
-          <InstagramIcon className="size-4" />
+          <InstagramIcon className="size-[1.125rem]" />
         </a>
       </Magnet>
     </div>
