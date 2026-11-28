@@ -26,6 +26,8 @@ export function clampMetaDescription(text: string, max = 160): string {
 
 export function buildOrganizationJsonLd() {
   const { brand, social, contact, seo } = site
+  const showPhone = contact.phoneEnabled && Boolean(contact.phoneHref)
+
   return {
     '@context': 'https://schema.org',
     '@type': ['LegalService', 'Organization'],
@@ -35,7 +37,7 @@ export function buildOrganizationJsonLd() {
     logo: absoluteUrl(brand.logo),
     image: absoluteUrl(seo.ogImage),
     description: seo.description,
-    telephone: contact.phoneHref.replace('tel:', ''),
+    ...(showPhone ? { telephone: contact.phoneHref.replace('tel:', '') } : {}),
     areaServed: {
       '@type': 'Country',
       name: 'Iran',

@@ -55,12 +55,12 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1.5 sm:gap-3">
-          <SocialLinks compact />
+        <div className="flex items-center gap-2 sm:gap-3">
+          <SocialLinks tone="header" />
           <JusticeSeal size="sm" className="hidden md:grid" />
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-xl border border-white/15 text-white lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-xl border border-white/15 text-white lg:hidden"
             aria-label={open ? site.header.menuClose : site.header.menuOpen}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
